@@ -39,3 +39,33 @@ Quick start
 4. Implement the token validation on your registration view inside views.py.
 
 	YES, I will add an example for point "4".
+
+
+How to manage the invitation codes with the admin panel?
+--------------------------------------------------------
+
+1. Open up your admin.py
+
+2. Paste the following code inside, (remember to structure keep the structure):
+
+	from .models import InvitationCode
+	
+	class InvitationCodeAdmin(admin.ModelAdmin):
+	    list_display = ( 'code', 'user', 'is_used', 'used_date', 'issued_date')
+	    list_filter = ( 'user', 'issued_date',)
+	    readonly_fields=('code',)
+	    
+	    # Prevent anyone from adding Invitation Codes without the hashing script.
+	    def has_add_permission(self, request):
+	        return False
+
+
+    admin.site.register(InvitationCode, InvitationCodeAdmin)
+
+3. Ready! Now you can keep track of all the used codes, and know when to generate more.
+
+
+How to implement the codes with my registration view inside views.py
+--------------------------------------------------------------------
+
+TODO
