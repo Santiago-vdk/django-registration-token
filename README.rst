@@ -1,5 +1,9 @@
+=========================
 django-registration-token
 =========================
+
+.. image:: https://travis-ci.org/Santiago-vdk/django-registration-token.svg?branch=master
+    :target: https://travis-ci.org/Santiago-vdk/django-registration-token
 
 A Django 1.8+ auth backend that implements user generated tokens to register users.
 
