@@ -1,9 +1,6 @@
 # django-registration-token
+
 A Django 1.8+ auth backend that implements user generated tokens to register users.
-
-
-Polls is a simple Django app to conduct Web-based polls. For each
-question, visitors can choose between a fixed number of answers.
 
 django-registration-token is a simple system that prevents unwanted
 users from accessing the content, it implements a script that
@@ -25,15 +22,15 @@ Quick start
 
 3. Run the following command to generate any ammount of token models.
 
-	```
-		>> python manage.py gen-invitation-codes "ammount"
-		...
+	
+	>> python manage.py gen-invitation-codes "ammount"
+	...
 
 
-		*Generation algorithm explained later.
+	*Generation algorithm explained later.
 
-	```
+	
 
 4. Implement the token validation on your registration view inside views.py.
 
-> YES, I will add an example for point "4".
+	YES, I will add an example for point "4".
