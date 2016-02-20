@@ -25,16 +25,12 @@ Quick start
 
 2. Run `python manage.py makemigrations and python manage.py migrate` to create the InvitationCode model.
 
-3. Run the following command to generate any ammount of token models.
+3. Run the following command to generate any ammount of token models::
 
-	
 	>> python manage.py gen-invitation-codes "ammount"
 	...
-
-
 	*Generation algorithm explained later.
 
-	
 
 4. Implement the token validation on your registration view inside views.py.
 
@@ -46,18 +42,18 @@ How to manage the invitation codes with the admin panel?
 
 1. Open up your admin.py
 
-2. Paste the following code inside, (remember to structure keep the structure):
+2. Paste the following code inside, (remember to structure keep the structure)::
 
 	from .models import InvitationCode
 	
 	class InvitationCodeAdmin(admin.ModelAdmin):
-    list_display = ( 'code', 'user', 'is_used', 'used_date', 'issued_date')
-    list_filter = ( 'user', 'issued_date',)
-    readonly_fields=('code',)
+        list_display = ( 'code', 'user', 'is_used', 'used_date', 'issued_date')
+        list_filter = ( 'user', 'issued_date',)
+        readonly_fields=('code',)
     
     # Prevent anyone from adding Invitation Codes without the hashing script.
     def has_add_permission(self, request):
-    return False
+        return False
 
     admin.site.register(InvitationCode, InvitationCodeAdmin)
 
