@@ -20,10 +20,10 @@ Quick start
 
     INSTALLED_APPS = [
         ...
-        'django-registration-token',
+        'django_registration_token',
     ]
 
-2. Run `python manage.py migrate` to create the InvitationCode model.
+2. Run `python manage.py makemigrations and python manage.py migrate` to create the InvitationCode model.
 
 3. Run the following command to generate any ammount of token models.
 
@@ -51,21 +51,20 @@ How to manage the invitation codes with the admin panel?
 	from .models import InvitationCode
 	
 	class InvitationCodeAdmin(admin.ModelAdmin):
-	    list_display = ( 'code', 'user', 'is_used', 'used_date', 'issued_date')
-	    list_filter = ( 'user', 'issued_date',)
-	    readonly_fields=('code',)
-	    
-	    # Prevent anyone from adding Invitation Codes without the hashing script.
-	    def has_add_permission(self, request):
-	        return False
-
+    list_display = ( 'code', 'user', 'is_used', 'used_date', 'issued_date')
+    list_filter = ( 'user', 'issued_date',)
+    readonly_fields=('code',)
+    
+    # Prevent anyone from adding Invitation Codes without the hashing script.
+    def has_add_permission(self, request):
+    return False
 
     admin.site.register(InvitationCode, InvitationCodeAdmin)
 
 3. Ready! Now you can keep track of all the used codes, and know when to generate more.
 
 
-How to implement the codes with my registration view inside views.py
---------------------------------------------------------------------
+How to implement the codes with my registration view
+----------------------------------------------------
 
 TODO

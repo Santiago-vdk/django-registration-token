@@ -1,7 +1,7 @@
 from django.core.management import BaseCommand
 import time
 
-from jobs.models import InvitationCode
+from django_registration_token.models import InvitationCode
 
 import argparse
 
