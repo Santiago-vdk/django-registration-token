@@ -1,9 +1,15 @@
 language: python
+services:
+- sqlite3
 python:
 - '3.4'
 - '3.5'
 - 3.5-dev
 - nightly
-install: pip install -r requirements.txt
+install: 
+- pip install -r requirements.txt
+before_script:
+- python manage.py migrate
 # command to run tests
-script: python manage.py test
+script: 
+- python manage.py test
